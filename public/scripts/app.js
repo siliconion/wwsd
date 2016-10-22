@@ -1,0 +1,1 @@
+var wwsd = angular.module('wwsd', [ 'ngRoute', 'ngAnimate', 'wwsdControllers' ]);

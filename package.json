@@ -1,0 +1,25 @@
+{
+  "name": "wwsd",
+  "version": "1.0.0",
+  "description": "what would she do? social role play strong female fictional charaters",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "firebase": "^3.5.1",
+    "gcloud": "^0.37.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siliconion/wwsd.git"
+  },
+  "author": "siliconion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siliconion/wwsd/issues"
+  },
+  "homepage": "https://github.com/siliconion/wwsd#readme"
+}
