@@ -1,4 +1,4 @@
-var wwsd = angular.module('wwsd', [ 'ngRoute' ]);
+var wwsd = angular.module('wwsd', [ 'ngRoute','firebase' ]);
 
 
 /* Initializing and configuring Templates controllers and route providers */
@@ -14,8 +14,15 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
   });
 }]);
 
-wwsd.controller('lobbyController', ['$scope', function($scope){
+wwsd.controller('lobbyController', ['$scope','$firebaseAuth', function($scope,
+		$firebaseAuth){
   console.log("HERE!! with lobby");
+	var auth = $firebaseAuth();
+	$firebaseAuth.$signInWithPopup("google").then(function(firebaseUser) {
+		console.log("Signed in as:", firebaseUser.uid);
+	}).catch(function(error) {
+		console.log("Authentication failed:", error);
+	});
 }]);
 
 wwsd.controller('roomController', ['$scope', function($scope){
