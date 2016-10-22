@@ -14,10 +14,10 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
   });
 }]);
 
-wwsd.controller(['lobbyController', [function(){
-  console.log("HERE!!");
-}]]);
+wwsd.controller('lobbyController', ['$scope', function($scope){
+  console.log("HERE!! with lobby");
+}]);
 
-wwsd.controller(['roomController', [function(){
-  console.log("HERE!!");
-}]]);
+wwsd.controller('roomController', ['$scope', function($scope){
+  console.log("HERE!! with room");
+}]);
