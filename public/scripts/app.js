@@ -1,6 +1,5 @@
 var wwsd = angular.module('wwsd', [ 'ngRoute','firebase' ]);
 
-
 /* Initializing and configuring Templates controllers and route providers */
 wwsd.config([ '$routeProvider', function( $routeProvider ){
   $routeProvider.when('/', {
@@ -27,4 +26,10 @@ wwsd.controller('lobbyController', ['$scope','$firebaseAuth', function($scope,
 
 wwsd.controller('roomController', ['$scope', function($scope){
   console.log("HERE!! with room");
+}]);
+
+wwsd.controller('authController', ['$scope', function($scope){
+  console.log("HERE!! auth");
+  var provider = new firebase.auth.GoogleAuthProvider();
+  this.auth.signInWithPopup(provider);
 }]);

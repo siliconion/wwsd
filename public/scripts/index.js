@@ -6,27 +6,21 @@ var config = {
   storageBucket: "my-project-1473181399640.appspot.com",
   messagingSenderId: "286241134059"
 };
-firebase.initializeApp(config);
+window.database;
 var database = firebase.database();
 
-// Initializes FriendlyChat.
-function FriendlyChat() {
-  this.checkSetup();
-  this.initFirebase();
-}
-
 // Sets up shortcuts to Firebase features and initiate firebase auth.
-FriendlyChat.prototype.initFirebase = function() {
+initFirebase = function() {
   // Shortcuts to Firebase SDK features.
-  // this.auth = firebase.auth();
+  this.auth = firebase.auth();
   this.database = firebase.database();
   this.storage = firebase.storage();
   // Initiates Firebase auth and listen to auth state changes.
-  // this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+  this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 };
 
 // Checks that the Firebase SDK has been correctly setup and configured.
-FriendlyChat.prototype.checkSetup = function() {
+checkSetup = function() {
   if (!window.firebase || !(firebase.app instanceof Function) || !window.config) {
     window.alert('You have not configured and imported the Firebase SDK. ' +
         'Make sure you go through the codelab setup instructions.');
@@ -41,5 +35,9 @@ FriendlyChat.prototype.checkSetup = function() {
 };
 
 window.onload = function() {
-  window.friendlyChat = new FriendlyChat();
+  checkSetup();
+  initFirebase();
+  firebase.initializeApp(config);
+  var database = firebase.database();
+  window.firebase = new FriendlyChat();
 };

@@ -9,8 +9,18 @@
     <div>
       <div>
         WWSD
+        <div>
         <a href="#/lobby"> go to lobby </a>
         <a href="#/room"> go to room </a>
+
+        <div id="user-container" ng-controller="authController">
+          <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+            Sign-out
+          </button>
+          <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+            Sign-in
+          </button>
+        </div>
       </div>
       <ng-view>
       </ng-view>
