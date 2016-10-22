@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.8",
+    "angularfire": "^2.0.2",
     "firebase": "^3.5.1",
     "gcloud": "^0.37.0"
   },
