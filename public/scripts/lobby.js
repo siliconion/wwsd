@@ -5,11 +5,6 @@ angular.module('wwsd.lobby', [])
 
   fb.$loaded().then(function() {
     console.log("loaded record:", fb.$id, fb.someOtherKeyInData);
-    // To iterate the key/value pairs of the object, use angular.forEach()
-    // angular.forEach(fb, function(value, key) {
-    //   console.log("receive data:", key, value);
-    // });
-    // To make the data available in the DOM, assign it to $scope
     console.log("getting data:", fb);
     $scope.data = fb;
   });
@@ -19,24 +14,22 @@ angular.module('wwsd.lobby', [])
   });
 
   $scope.submitNew = () => {
-    console.log("submitting:", $scope.situation);
     var key = Date.now().toString() + Math.floor(Math.random()*100);
     fb[key] = {
       situation: $scope.situation,
     };
     fb.$save().then(function(ref) {
       // ref.key === fb.$id; // true
-      // console.log(ref.key, fb.$id);
+      console.log(ref);
       $scope.situation = "";
+      location.href='#/room/' + key;
     }, function(error) {
       console.log("Error:", error);
     });
   }
 
   $scope.enterRoom = (id) =>{
-    console.log("entering room", id);
+    unwatch();
     location.href='#/room/' + id;
   }
-  // at some time in the future, we can unregister using
-  // unwatch();
 }]);
