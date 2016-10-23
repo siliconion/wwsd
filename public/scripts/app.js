@@ -33,6 +33,13 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
 
 wwsd.controller('appController', ['$scope','$firebaseAuth','$rootScope', function($scope, $firebaseAuth, $rootScope){
   var auth = $firebaseAuth();
+  $scope.CharImg = "img/char.svg";
+  $scope.goToHome = () => {
+    location.href="#/";
+  }
+  $scope.goToChar = () => {
+    location.href="#/characters";
+  }
   $scope.signIn = (goTo)=> {
     auth.$signInWithPopup("google").then(function(data) {
       console.log("Signed in as:", data.user.photoURL);
@@ -55,10 +62,13 @@ wwsd.controller('appController', ['$scope','$firebaseAuth','$rootScope', functio
     if(!$scope.character) return 'noChar';
     return 'ok';
   }
-  $scope.selectCharacter = (character) =>{
-    console.log("select character", character);
+  $scope.selectCharacter = (character, values) =>{
+    console.log("select character", character, values);
     if($scope.userId){
+      // $rootScope.character = character;
       $scope.character = character;
+      $scope.CharImg = values.img;
+      console.log($scope.CharImg)
       if($rootScope.goTo){
         var goTo = $rootScope.goTo;
         $rootScope.goTo = null;

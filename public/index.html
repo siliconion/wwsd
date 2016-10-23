@@ -18,21 +18,21 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#/lobby" class=" btn-round">
-                <img src="img/home.svg" alt="Home" />
-              </a>
+              <div ng-click="goToHome()" class=" btn-default btn-round">
+                <img class="nav-img" src="img/home.svg" alt="Home" />
+              </div>
             </li>
             <li>
-              <a href="#/characters" class=" btn-round">  
-                <img src="img/char.svg" alt="Characters" />
-              </a>
+              <div ng-click="goToChar()" class=" btn-default btn-round">  
+                <img class="nav-img" ng-src="{{CharImg}}" alt="Characters" />
+              </div>
             </li>
             <li id="user-container">
-              <button ng-hide="userStatus()==='singedOut'" id="sign-out" ng-click="signOut()" class=" btn-round">
-                Sign-out
+              <button ng-hide="userStatus()==='singedOut'" id="sign-out" ng-click="signOut()" class="btn btn-default btn-round">
+                Sign Out
               </button>
-              <button ng-show="userStatus()==='singedOut'" ng-click="signIn()" class=" btn-round">
-                Sign-in
+              <button ng-show="userStatus()==='singedOut'" ng-click="signIn()" class="btn btn-default btn-round">
+                Sign In
               </button>
             </li>
           </ul>

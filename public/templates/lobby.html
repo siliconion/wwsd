@@ -1,13 +1,13 @@
 <div class="container">
   <div class="lobby-new">
-    <textarea ng-model = 'situation' type="text" class="form-control" rows="3" placeholder="Enter your situation">
+    <textarea ng-model = 'situation' type="text" class="form-control" rows="3" placeholder="What's your situation?">
     </textarea>
     <button ng-click="submitNew()" class="btn pull-right">Submit</button>
   </div>
 
   <div class="lobby-rooms">
     <div>
-      previous questions
+      <h4>Check out other tough situations!</h4>
     </div>
 
     <div class="lobby-rooms" ng-repeat="(key, value) in data">

@@ -1,5 +1,8 @@
 angular.module('wwsd.room', [])
-.controller('roomController', ['$rootScope','$scope', '$routeParams','$firebaseObject',function($rootScope,$scope, $routeParams, $firebaseObject){
+.controller('roomController', 
+  ['$rootScope','$scope', '$routeParams','$firebaseObject','$firebaseArray',
+  function($rootScope,$scope, $routeParams, $firebaseObject, $firebaseArray){
+
   console.log("HERE!! with room", $routeParams.id);
   var ref = firebase.database().ref('situations').child($routeParams.id);
   var fb = $firebaseObject(ref);
@@ -13,8 +16,32 @@ angular.module('wwsd.room', [])
     console.log("data changed!");
   });
 
+  $scope.submitAnswer = ()=> {
+    var refReplies = firebase.database().ref('situations').child($routeParams.id).child('replies');
+    var fbReplies = $firebaseArray(ref);
+    var key = Date.now().toString() + Math.floor(Math.random()*100);     
+    console.log("seding replies!",$scope.answer, $scope.character) 
+    var obj = {};
+    obj[key] =  {
+        reply: $scope.answer,
+        character: $scope.character
+      };
+      fbReplies.$add({
+        reply: $scope.answer,
+        character: $scope.character
+      }).then(function(ref) {
+        // ref.key === fb.$id; // true
+        console.log(ref);
+        $scope.situation = "";
+        location.href='#/room/' + key;
+      }, function(error) {
+        console.log("Error:", error);
+      });
+  }
+
   $scope.roomSelectChar = () => {
     $rootScope.goTo = $rootScope.room; 
+    console.log("select room",  $rootScope.goTo , $rootScope.room);
     location.href='#/characters';
   }
 

@@ -17,6 +17,7 @@ angular.module('wwsd.lobby', [])
     var key = Date.now().toString() + Math.floor(Math.random()*100);
     fb[key] = {
       situation: $scope.situation,
+      replies:null
     };
     fb.$save().then(function(ref) {
       // ref.key === fb.$id; // true
