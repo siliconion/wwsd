@@ -1,9 +1,16 @@
-<h1> Lobby</h1>
+<div id="container">
+  <h1> Lobby</h1>
+  <div id="lobby-new">
+    <input ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your situation">
+    <button ng-click="submitNew()">Submit</button>
+  </div>
 
-<div>
-  Add your own question
-</div>
-
-<div>
-  previous questions
+  <div>
+    previous questions
+  </div>
+  <div class="lobby-rooms" ng-repeat="(key, value) in data">
+    <div class='loby-room'>
+      <div class='visits' ng-click="enterRoom(key)">{{value.situation}}</div>
+    </div>
+  </div>
 </div>

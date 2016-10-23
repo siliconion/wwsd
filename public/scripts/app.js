@@ -1,19 +1,24 @@
-var wwsd = angular.module('wwsd', [ 'ngRoute','firebase' ]);
+var wwsd = angular.module('wwsd', [ 
+  'ngRoute',
+  'firebase',
+  'wwsd.room',
+  'wwsd.lobby'
+  ]);
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCsb9rxT5sn67SPg2Ri6ty9Cd3LJ9eTwpU",
-  authDomain: "my-project-1473181399640.firebaseapp.com",
-  databaseURL: "https://my-project-1473181399640.firebaseio.com",
-  storageBucket: "my-project-1473181399640.appspot.com",
-  messagingSenderId: "286241134059"
-};
+    apiKey: "AIzaSyCOeo0tXA0-gso0qPOQr57go9rVaNgphn4",
+    authDomain: "wwsd-1d721.firebaseapp.com",
+    databaseURL: "https://wwsd-1d721.firebaseio.com",
+    storageBucket: "wwsd-1d721.appspot.com",
+    messagingSenderId: "427142324447"
+  };
 
 /* Initializing and configuring Templates controllers and route providers */
 wwsd.config([ '$routeProvider', function( $routeProvider ){
   $routeProvider.when('/', {
     templateUrl :  'templates/lobby.html',
     controller : 'lobbyController'
-  }).when('/room', {
+  }).when('/room/:id', {
     templateUrl :  'templates/room.html',
     controller : 'roomController'
   }).otherwise({
@@ -22,16 +27,7 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
   firebase.initializeApp(firebaseConfig);
 }]);
 
-wwsd.controller('lobbyController', ['$scope', function($scope){
-  console.log("HERE!! with lobby");
-}]);
-
-wwsd.controller('roomController', ['$scope', function($scope){
-  console.log("HERE!! with room");
-}]);
-
 wwsd.controller('authController', ['$scope','$firebaseAuth', function($scope, $firebaseAuth){
-  console.log("HERE!! auth");
   var auth = $firebaseAuth();
   $scope.signIn = ()=> {
     auth.$signInWithPopup("google").then(function(data) {
@@ -42,6 +38,6 @@ wwsd.controller('authController', ['$scope','$firebaseAuth', function($scope, $f
   }
   $scope.signOut = () => {
     console.log("sign out");
-    // $firebaseAuth.$
+    $firebaseAuth.$signOut();
   }
 }]);

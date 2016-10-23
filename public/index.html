@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>WWSD?</title>
-
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
   </head>
   <body>
     <div>
@@ -11,10 +11,8 @@
         WWSD
         <div>
         <a href="#/lobby"> go to lobby </a>
-        <a href="#/room"> go to room </a>
-
         <div id="user-container" ng-controller="authController">
-          <button hidden id="sign-out" ng-click="signOut()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+          <button ng-hide="true" id="sign-out" ng-click="signOut()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
             Sign-out
           </button>
           <button id="sign-in" ng-click="signIn()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
@@ -29,7 +27,8 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
 	  <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
-	  <script src="scripts/app.js"></script>
-    <!--<script src="scripts/main.js"></script>-->
+	  <script src="scripts/room.js"></script>
+    <script src="scripts/lobby.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>
