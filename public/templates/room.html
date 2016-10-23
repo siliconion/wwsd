@@ -1,0 +1,17 @@
+<div id="container">
+  <h1> Room</h1>
+  <div id="room-question">
+    Question here
+  </div>
+
+  <div id="room-question">
+    <input ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your answer">
+    <button ng-click="submitAnswer()">Submit</button>
+  </div>
+
+  <div class="room-answers" ng-repeat="room in data.room | orderBy: '-time' ">
+    <div class='info'>
+      <div class='visits'>{{room.situation}}</div>
+    </div>
+  </div>
+</div>
