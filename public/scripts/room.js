@@ -14,7 +14,8 @@ angular.module('wwsd.room', [])
   });
 
   $scope.roomSelectChar = () => {
-    location.href='#/characters/:id';
+    $rootScope.goTo = $rootScope.room; 
+    location.href='#/characters';
   }
 
   $scope.show3 = () => {

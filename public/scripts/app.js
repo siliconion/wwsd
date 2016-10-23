@@ -25,16 +25,13 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
   }).when('/characters', {
     templateUrl :  'templates/characters.html',
     controller : 'charactersController'
-  }).when('/characters/:id', {
-    templateUrl :  'templates/characters.html',
-    controller : 'charactersController'
   }).otherwise({
     redirectTo:'/'
   });
   firebase.initializeApp(firebaseConfig);
 }]);
 
-wwsd.controller('appController', ['$scope','$firebaseAuth', function($scope, $firebaseAuth){
+wwsd.controller('appController', ['$scope','$firebaseAuth','$rootScope', function($scope, $firebaseAuth, $rootScope){
   var auth = $firebaseAuth();
   $scope.signIn = (goTo)=> {
     auth.$signInWithPopup("google").then(function(data) {
@@ -49,22 +46,24 @@ wwsd.controller('appController', ['$scope','$firebaseAuth', function($scope, $fi
   }
   $scope.signOut = () => {
     console.log("sign out");
-    $firebaseAuth.$signOut();
+    auth.$signOut();
     $scope.userId = null;
+    $scope.character = null;
   }
   $scope.userStatus = () => {
-    console.log("sign in status", $scope.userId, $scope.character);
     if(!$scope.userId) return 'singedOut';
     if(!$scope.character) return 'noChar';
     return 'ok';
   }
-  $scope.selectCharacter = (character, goTo) =>{
+  $scope.selectCharacter = (character) =>{
     console.log("select character", character);
     if($scope.userId){
       $scope.character = character;
-      if(goTo){
+      if($rootScope.goTo){
+        var goTo = $rootScope.goTo;
+        $rootScope.goTo = null;
         console.log("going to", goTo);
-        location.href=goTo;
+        location.href="#/room/"+goTo;
       }
     } else {
       alert("Please Sign In!");

@@ -2,18 +2,21 @@
 {
   "situations": {
     "1477194299198000": {
-        "replies" : [ null, {
+        "replies" : [ {
         "character" : "Ripley",
         "reply" : "Wait a minute. The cake could be infected. You know the quarantine procedure. Twenty-four hours for decontamination."
         } ],
         "situation" : "Should I have this chocolate lava cake?"
       },
     "1477194372225000": {
-      "replies" : [ null, {
+      "replies" : [ {
           "character" : "Buffy the vampire slayer",
           "reply" : "All right, yes, date and shop and hang out and go to school and save the world from unspeakable demons. You know, I want to do girlie stuff."
         } ],
         "situation" : "Sometimes I am afraid to show my girly side at work because I want to blend in with my male colleagues. But I want to embrace my feminine side too. "
+    },
+    "147720335984612" : {
+       "situation" : "I got interrupted a lot. What should I do?"
     }
   },
   "characters": {
