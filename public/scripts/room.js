@@ -12,4 +12,25 @@ angular.module('wwsd.room', [])
     $scope.data = fb;
     console.log("data changed!");
   });
+
+  $scope.roomSelectChar = () => {
+    location.href='#/characters/:id';
+  }
+
+  $scope.show3 = () => {
+    console.log("sign in status", $scope.userId, $scope.character);
+    if($scope.userId && $scope.character) return true;
+    return false;
+  }
+
+  $scope.show2 = () => {
+    console.log("sign in status", $scope.userId, $scope.character);
+    if($scope.userId && !$scope.character) return true;
+    return false;
+  }
+  $scope.show1 = () => {
+    console.log("sign in status", $scope.userId, $scope.character);
+    if(!$scope.userId && !$scope.character) return true;
+    return false;
+  }
 }]);

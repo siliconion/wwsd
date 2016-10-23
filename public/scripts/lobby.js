@@ -1,5 +1,5 @@
 angular.module('wwsd.lobby', [])
-.controller('lobbyController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
+.controller('lobbyController', ['$scope', '$firebaseObject', '$rootScope', function($scope, $firebaseObject, $rootScope){
   var ref = firebase.database().ref('situations');
   var fb = $firebaseObject(ref);
 
@@ -30,6 +30,7 @@ angular.module('wwsd.lobby', [])
 
   $scope.enterRoom = (id) =>{
     unwatch();
+    $rootScope.room = id;
     location.href='#/room/' + id;
   }
 }]);

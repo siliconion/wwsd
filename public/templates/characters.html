@@ -1,18 +1,25 @@
 <div class="container">
   <div class="characters">
-    
+
     <div>
       Awesome Characters!
     </div>
 
-    <div class="characters-container" >
-      <ul ng-repeat="(key, value) in data">
-        <li>
-          <div class='character-img'><img src={{value.img}} /></div>
-          <div class='character-name'>{{key}}</div>
-          <div class='character-quote'>{{value.quote}}</div>
-          <div ng-click="selectCharacter({key:value})"> select </div>
-        </li>
+    <div class="characters">
+      <div class="row character" ng-repeat="(key, value) in data">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <img class="character-img " src={{value.img}} />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class='character-name '>{{key}}</div>
+          <div class='character-quote '>{{value.quote}}</div>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+          <div class='center'>
+            <button class='btn btn-default' ng-click="selectCharacter({key:value},'#/room/' + id)"> select </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -9,12 +9,18 @@ body {
 }
 
 a{
-  color:white;
+  color:black;
 }
 nav {
   background-color: black;
   padding: 10px;
   margin-bottom: 100px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
 }
 
 .navbar-right{
@@ -71,8 +77,16 @@ nav {
   margin-top: 20px;
 }
 
-.character-img img{
-  width: 80px;
-  height: 80px;
+.character {
+  margin-top: 10px;
+}
+
+.character li{
+  list-style-type: none;
+  display: inline;
+}
+.character-img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 }

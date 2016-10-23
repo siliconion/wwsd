@@ -25,6 +25,9 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
   }).when('/characters', {
     templateUrl :  'templates/characters.html',
     controller : 'charactersController'
+  }).when('/characters/:id', {
+    templateUrl :  'templates/characters.html',
+    controller : 'charactersController'
   }).otherwise({
     redirectTo:'/'
   });
@@ -33,10 +36,13 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
 
 wwsd.controller('appController', ['$scope','$firebaseAuth', function($scope, $firebaseAuth){
   var auth = $firebaseAuth();
-  $scope.signIn = ()=> {
+  $scope.signIn = (goTo)=> {
     auth.$signInWithPopup("google").then(function(data) {
       console.log("Signed in as:", data.user.photoURL);
       $scope.userId = data.user.uid;
+      if(goTo){
+        location.href=goTo;
+      }
     }).catch(function(error) {
       console.log("Authentication failed:", error);
     });
@@ -52,9 +58,16 @@ wwsd.controller('appController', ['$scope','$firebaseAuth', function($scope, $fi
     if(!$scope.character) return 'noChar';
     return 'ok';
   }
-  $scope.selectCharacter = (character) =>{
+  $scope.selectCharacter = (character, goTo) =>{
     console.log("select character", character);
-    $scope.character = character;
-    // location.href='#/room/' + id;
+    if($scope.userId){
+      $scope.character = character;
+      if(goTo){
+        console.log("going to", goTo);
+        location.href=goTo;
+      }
+    } else {
+      alert("Please Sign In!");
+    }
   }
 }]);

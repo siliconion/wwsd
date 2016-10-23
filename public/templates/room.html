@@ -3,18 +3,18 @@
     {{data.situation}}
   </div>
 
-  <div ng-show="userStatus()==='ok'" id="room-question">
+  <div ng-show="show3()" class="room-newanswer">
     <textarea ng-model = 'situation' type="text"  class="form-control" rows="5" placeholder="Enter your answer">
     </textarea>
     <button ng-click="submitAnswer()">Submit</button>
   </div>
 
-  <div ng-show="userStatus()==='singedOut'" id="room-question">
-    <a ng-click="signIn()"> Sign in and choose a character to reply </a>
+  <div ng-show="show1()" class="room-newanswer">
+    <div ng-click="signIn()"> Sign in and choose a character to reply </div>
   </div>
 
-    <div ng-show="userStatus()==='noChar'" id="room-question">
-    <a href="characters"> Choose a character to reply </a>
+  <div ng-show="show2()" class="room-newanswer">
+    <div ng-click="roomSelectChar()" href="/#/characters"> Choose a character to reply </div>
   </div>
 
   <div class="room-answers" ng-repeat="(key, value) in data.replies">
