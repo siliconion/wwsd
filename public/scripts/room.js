@@ -12,11 +12,4 @@ angular.module('wwsd.room', [])
     $scope.data = fb;
     console.log("data changed!");
   });
-
-  $scope.userStatus = () => {
-    console.log("sign in status", $scope.userId, $scope.character);
-    if(!$scope.userId) return 'singedOut';
-    if(!$scope.character) return 'noChar';
-    return 'ok';
-  }
 }]);

@@ -2,6 +2,7 @@ var wwsd = angular.module('wwsd', [
   'ngRoute',
   'firebase',
   'wwsd.room',
+  'wwsd.characters',
   'wwsd.lobby'
   ]);
 
@@ -21,6 +22,9 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
   }).when('/room/:id', {
     templateUrl :  'templates/room.html',
     controller : 'roomController'
+  }).when('/characters', {
+    templateUrl :  'templates/characters.html',
+    controller : 'charactersController'
   }).otherwise({
     redirectTo:'/'
   });
@@ -47,5 +51,10 @@ wwsd.controller('appController', ['$scope','$firebaseAuth', function($scope, $fi
     if(!$scope.userId) return 'singedOut';
     if(!$scope.character) return 'noChar';
     return 'ok';
+  }
+  $scope.selectCharacter = (character) =>{
+    console.log("select character", character);
+    $scope.character = character;
+    // location.href='#/room/' + id;
   }
 }]);

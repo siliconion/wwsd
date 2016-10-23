@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="characters">
+    
+    <div>
+      Awesome Characters!
+    </div>
+
+    <div class="characters-container" >
+      <ul ng-repeat="(key, value) in data">
+        <li>
+          <div class='character-img'><img src={{value.img}} /></div>
+          <div class='character-name'>{{key}}</div>
+          <div class='character-quote'>{{value.quote}}</div>
+          <div ng-click="selectCharacter({key:value})"> select </div>
+        </li>
+    </div>
+  </div>
+</div>

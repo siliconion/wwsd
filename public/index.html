@@ -18,10 +18,14 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#/lobby" class=" btn-round"> Lobby </a>
+              <a href="#/lobby" class=" btn-round">
+                <img src="img/home.svg" alt="Home" />
+              </a>
             </li>
             <li>
-              <a href="#/characters" class=" btn-round"> Characters </a>
+              <a href="#/characters" class=" btn-round">  
+                <img src="img/char.svg" alt="Characters" />
+              </a>
             </li>
             <li id="user-container">
               <button ng-hide="userStatus()==='singedOut'" id="sign-out" ng-click="signOut()" class=" btn-round">
@@ -43,6 +47,7 @@
 	  <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 	  <script src="scripts/room.js"></script>
     <script src="scripts/lobby.js"></script>
+    <script src="scripts/characters.js"></script>
     <script src="scripts/app.js"></script>
   </body>
 </html>

@@ -8,6 +8,9 @@ body {
   color: black;
 }
 
+a{
+  color:white;
+}
 nav {
   background-color: black;
   padding: 10px;
@@ -39,4 +42,37 @@ nav {
   text-align: center;
   color: white;
   margin-top: 20px;
+}
+.lobby-new {
+  margin-bottom: 60px;
+}
+.lobby-rooms {
+  background-color: gray;
+  border: 1px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.lobby-room {
+  background-color: lightgray;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.room-question{
+  background-color: lightgray;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.room-answer{
+  background-color: lightgray;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.character-img img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }

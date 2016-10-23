@@ -1,17 +1,19 @@
 <div class="container">
-  <div id="lobby-new">
-    <textarea ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your situation">
+  <div class="lobby-new">
+    <textarea ng-model = 'situation' type="text" class="form-control" rows="3" placeholder="Enter your situation">
     </textarea>
-    <button ng-click="submitNew()">Submit</button>
+    <button ng-click="submitNew()" class="btn pull-right">Submit</button>
   </div>
 
-  <div>
-    previous questions
-  </div>
+  <div class="lobby-rooms">
+    <div>
+      previous questions
+    </div>
 
-  <div class="lobby-rooms" ng-repeat="(key, value) in data">
-    <div class='loby-room'>
-      <div class='visits' ng-click="enterRoom(key)">{{value.situation}}</div>
+    <div class="lobby-rooms" ng-repeat="(key, value) in data">
+      <div class='lobby-room'>
+        <div ng-click="enterRoom(key)">{{value.situation}}</div>
+      </div>
     </div>
   </div>
 </div>

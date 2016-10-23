@@ -1,10 +1,10 @@
 <div class="container">
-  <div id="room-question">
+  <div class="room-question">
     {{data.situation}}
   </div>
 
   <div ng-show="userStatus()==='ok'" id="room-question">
-    <textarea ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your answer">
+    <textarea ng-model = 'situation' type="text"  class="form-control" rows="5" placeholder="Enter your answer">
     </textarea>
     <button ng-click="submitAnswer()">Submit</button>
   </div>
@@ -18,9 +18,9 @@
   </div>
 
   <div class="room-answers" ng-repeat="(key, value) in data.replies">
-    <div class='info'>
-      <div class='visits'> {{value.character}}</div>
-      <div class='visits'> {{value.reply}}</div>
+    <div class='room-answer'>
+      <div > {{value.character}}</div>
+      <div > {{value.reply}}</div>
     </div>
   </div>
   
