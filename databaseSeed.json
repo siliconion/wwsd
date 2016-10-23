@@ -1,0 +1,37 @@
+
+{
+  "situations": {
+    "1477194299198000": {
+        "replies" : [ null, {
+        "character" : "Ripley",
+        "reply" : "Wait a minute. The cake could be infected. You know the quarantine procedure. Twenty-four hours for decontamination."
+        } ],
+        "situation" : "Should I have this chocolate lava cake?"
+      },
+    "1477194372225000": {
+      "replies" : [ null, {
+          "character" : "Buffy the vampire slayer",
+          "reply" : "All right, yes, date and shop and hang out and go to school and save the world from unspeakable demons. You know, I want to do girlie stuff."
+        } ],
+        "situation" : "Sometimes I am afraid to show my girly side at work because I want to blend in with my male colleagues. But I want to embrace my feminine side too. "
+    }
+  },
+  "characters": {
+    "Scarlett O'Hara": {
+      "quote":"If I have to lie, steal, cheat or kill. As God is my witness, I'll never be hungry again.",
+      "img":"http://i.imgur.com/XYrrg9x.jpg"
+    },
+    "Ellen Ripley": {
+      "quote":"Get away from her, you bitch!",
+      "img":"http://i.imgur.com/yS8d6Rw.png"
+    },
+    "Buffy Summers": {
+      "quote":"If the Apocalypse comes, beep me.",
+      "img":"http://i.imgur.com/OylbBVk.jpg"
+    },
+    "Imperator Furiosa": {
+      "quote":"Out here, everything hurts. You wanna get through this? Do as I say. Now pick up what you can and run.",
+      "img":"http://i.imgur.com/cWKmP5q.jpg"
+    }
+  }
+}

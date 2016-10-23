@@ -1,6 +1,6 @@
 angular.module('wwsd.lobby', [])
 .controller('lobbyController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
-  var ref = firebase.database().ref();
+  var ref = firebase.database().ref('situations');
   var fb = $firebaseObject(ref);
 
   fb.$loaded().then(function() {

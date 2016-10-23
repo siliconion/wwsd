@@ -1,11 +1,10 @@
 angular.module('wwsd.room', [])
-.controller('roomController', ['$scope', '$routeParams',function($scope, $routeParams){
+.controller('roomController', ['$rootScope','$scope', '$routeParams','$firebaseObject',function($rootScope,$scope, $routeParams, $firebaseObject){
   console.log("HERE!! with room", $routeParams.id);
-  var ref = firebase.database().ref($routeParams.id);
+  var ref = firebase.database().ref('situations').child($routeParams.id);
   var fb = $firebaseObject(ref);
 
   fb.$loaded().then(function() {
-    console.log("loaded record:", fb.$id, fb.someOtherKeyInData);
     console.log("getting data:", fb);
     $scope.data = fb;
   });
@@ -13,4 +12,11 @@ angular.module('wwsd.room', [])
     $scope.data = fb;
     console.log("data changed!");
   });
+
+  $scope.userStatus = () => {
+    console.log("sign in status", $scope.userId, $scope.character);
+    if(!$scope.userId) return 'singedOut';
+    if(!$scope.character) return 'noChar';
+    return 'ok';
+  }
 }]);

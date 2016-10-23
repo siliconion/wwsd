@@ -27,11 +27,12 @@ wwsd.config([ '$routeProvider', function( $routeProvider ){
   firebase.initializeApp(firebaseConfig);
 }]);
 
-wwsd.controller('authController', ['$scope','$firebaseAuth', function($scope, $firebaseAuth){
+wwsd.controller('appController', ['$scope','$firebaseAuth', function($scope, $firebaseAuth){
   var auth = $firebaseAuth();
   $scope.signIn = ()=> {
     auth.$signInWithPopup("google").then(function(data) {
-      console.log("Signed in as:", JSON.stringify(data));
+      console.log("Signed in as:", data.user.photoURL);
+      $scope.userId = data.user.uid;
     }).catch(function(error) {
       console.log("Authentication failed:", error);
     });
@@ -39,5 +40,12 @@ wwsd.controller('authController', ['$scope','$firebaseAuth', function($scope, $f
   $scope.signOut = () => {
     console.log("sign out");
     $firebaseAuth.$signOut();
+    $scope.userId = null;
+  }
+  $scope.userStatus = () => {
+    console.log("sign in status", $scope.userId, $scope.character);
+    if(!$scope.userId) return 'singedOut';
+    if(!$scope.character) return 'noChar';
+    return 'ok';
   }
 }]);

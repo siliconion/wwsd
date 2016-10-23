@@ -1,13 +1,14 @@
-<div id="container">
-  <h1> Lobby</h1>
+<div class="container">
   <div id="lobby-new">
-    <input ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your situation">
+    <textarea ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your situation">
+    </textarea>
     <button ng-click="submitNew()">Submit</button>
   </div>
 
   <div>
     previous questions
   </div>
+
   <div class="lobby-rooms" ng-repeat="(key, value) in data">
     <div class='loby-room'>
       <div class='visits' ng-click="enterRoom(key)">{{value.situation}}</div>

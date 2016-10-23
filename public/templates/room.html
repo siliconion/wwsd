@@ -1,17 +1,27 @@
-<div id="container">
-  <h1> Room</h1>
+<div class="container">
   <div id="room-question">
-    Question here
+    {{data.situation}}
   </div>
 
-  <div id="room-question">
-    <input ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your answer">
+  <div ng-show="userStatus()==='ok'" id="room-question">
+    <textarea ng-model = 'situation' type="text" id="lobby-new-situation" placeholder="Enter your answer">
+    </textarea>
     <button ng-click="submitAnswer()">Submit</button>
   </div>
 
-  <div class="room-answers" ng-repeat="room in data.room | orderBy: '-time' ">
+  <div ng-show="userStatus()==='singedOut'" id="room-question">
+    <a ng-click="signIn()"> Sign in and choose a character to reply </a>
+  </div>
+
+    <div ng-show="userStatus()==='noChar'" id="room-question">
+    <a href="characters"> Choose a character to reply </a>
+  </div>
+
+  <div class="room-answers" ng-repeat="(key, value) in data.replies">
     <div class='info'>
-      <div class='visits'>{{room.situation}}</div>
+      <div class='visits'> {{value.character}}</div>
+      <div class='visits'> {{value.reply}}</div>
     </div>
   </div>
+  
 </div>

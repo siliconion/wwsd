@@ -3,23 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>WWSD?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
   </head>
-  <body>
-    <div>
-      <div>
-        WWSD
-        <div>
-        <a href="#/lobby"> go to lobby </a>
-        <div id="user-container" ng-controller="authController">
-          <button ng-hide="true" id="sign-out" ng-click="signOut()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-            Sign-out
-          </button>
-          <button id="sign-in" ng-click="signIn()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-            Sign-in
-          </button>
+  <body ng-controller="appController">
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="navbar-left">
+            <a href="#/lobby" class=" btn-title">W</a>
+            <a href="#/lobby" class=" btn-title">W</a>
+            <a href="#/lobby" class=" btn-title">S</a>
+            <a href="#/lobby" class=" btn-title">D</a>
         </div>
-      </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#/lobby" class=" btn-round"> Lobby </a>
+            </li>
+            <li>
+              <a href="#/characters" class=" btn-round"> Characters </a>
+            </li>
+            <li id="user-container">
+              <button ng-hide="userStatus()==='singedOut'" id="sign-out" ng-click="signOut()" class=" btn-round">
+                Sign-out
+              </button>
+              <button ng-show="userStatus()==='singedOut'" ng-click="signIn()" class=" btn-round">
+                Sign-in
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <ng-view>
       </ng-view>
     </div>

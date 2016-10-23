@@ -1,3 +1,42 @@
-div {
-  margin: 20px;
+
+body {
+  /*background: url(img/bg.svg), linear-gradient(to bottom, #485477 0%, #101623 100%) center center no-repeat;*/
+  -webkit-background-blend-mode: multiply, multiply;
+  background-blend-mode: multiply, multiply;
+  background-attachment: fixed;
+  background-size: cover;
+  color: black;
+}
+
+nav {
+  background-color: black;
+  padding: 10px;
+  margin-bottom: 100px;
+}
+
+.navbar-right{
+  margin-right: 10px;
+}
+.btn-title {
+  background-color: gray;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 3rem;
+  display: inline-block;
+  text-align: center;
+  padding-top: 20px;
+  color: white;
+}
+
+.btn-round {
+  background-color: gray;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  margin-top: 20px;
 }
