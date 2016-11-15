@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-left">
+      <a href="#/lobby" class=" btn-title">W</a>
+      <a href="#/lobby" class=" btn-title">W</a>
+      <a href="#/lobby" class=" btn-title">S</a>
+      <a href="#/lobby" class=" btn-title">D</a>
+  </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <div ng-click="goToHome()" class=" btn-default btn-round">
+          <img class="nav-img" src="img/home.svg" alt="Home" />
+        </div>
+      </li>
+      <li>
+        <div ng-click="goToChar()" class=" btn-default btn-round">  
+          <img class="nav-img" ng-src="{{CharImg}}" alt="Characters" />
+        </div>
+      </li>
+      <li id="user-container">
+        <button ng-hide="userStatus()==='singedOut'" id="sign-out" ng-click="signOut()" class="btn btn-default btn-round">
+          Sign Out
+        </button>
+        <button ng-show="userStatus()==='singedOut'" ng-click="signIn()" class="btn btn-default btn-round">
+          Sign In
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

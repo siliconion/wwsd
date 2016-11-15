@@ -1,3 +1,35 @@
+'use strict';
+
+// Register `phoneDetail` component, along with its associated controller and template
+angular.
+  module('room').
+  component('room', {
+    templateUrl: 'components/room/room.template.html',
+    controller: ['$routeParams', '$rootScope','$scope', '$routeParams','$firebaseObject','$firebaseArray',
+      function PhoneDetailController($routeParams, Phone) {
+        var self = this;
+        self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+          self.setImage(phone.images[0]);
+        });
+
+        self.setImage = function setImage(imageUrl) {
+          self.mainImageUrl = imageUrl;
+        };
+      }
+    ]
+  });
+
+function RoomController($routeParams, $rootScope, $scope, $firebaseObject, $firebaseArray) {
+        var self = this;
+        self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+          self.setImage(phone.images[0]);
+        });
+
+        self.setImage = function setImage(imageUrl) {
+          self.mainImageUrl = imageUrl;
+        };
+      }
+
 angular.module('wwsd.room', [])
 .controller('roomController', 
   ['$rootScope','$scope', '$routeParams','$firebaseObject','$firebaseArray',
